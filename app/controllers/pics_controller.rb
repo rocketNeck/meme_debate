@@ -9,6 +9,15 @@ class PicsController < ApplicationController
 
   def create
     @pic = Pic.new(pic_params)
+
+    if @pic.save
+      redirect_to @pic, notice: "Yes It was posted!"
+    else
+      render 'new'
+    end
+  end
+
+  def show
   end
 
   private
